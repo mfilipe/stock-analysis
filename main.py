@@ -1,8 +1,7 @@
 from src.base import logging
 import sys
 
-TICKERS = sys.argv[1:]
-if not TICKERS:
+if not (TICKERS := sys.argv[1:]):
   logging.error('Informe ao menos um ticker')
   sys.exit(1)
 
