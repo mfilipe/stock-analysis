@@ -16,4 +16,4 @@ Somente ações da B3 estão disponíveis. Os dados são da [StatusInvest](https
 
 ## Executar
 
-`$ python main.py TICKER[ TICKER]...`
+`$ python main.py TICKER[ TICKER]... # output.csv`
