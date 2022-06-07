@@ -27,6 +27,6 @@ def get_provents_by_year_df(tickers):
 
     df_rows.append([ticker, earnings_avg_3a, earnings_avg_5a])
   
-  df = pd.DataFrame(np.array(df_rows), columns=['TICKER','PROVENTOS AVG 3A','PROVENTOS AVG 5A'])
-  df[['PROVENTOS AVG 3A','PROVENTOS AVG 5A']] = df[['PROVENTOS AVG 3A','PROVENTOS AVG 5A']].astype(float)
+  df = pd.DataFrame(np.array(df_rows), columns=['TICKER','PROVENTOS 3ANOS','PROVENTOS 5ANOS'])
+  df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']] = df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']].astype(float)
   return df
