@@ -4,7 +4,7 @@ import numpy as np
 import json
 from datetime import date
 
-def get_dividends_df(ticker):
+def get_provents_df(ticker):
   driver = get_webdriver()
   driver.get(f'https://statusinvest.com.br/acoes/{ticker}')
   
@@ -15,17 +15,17 @@ def get_dividends_df(ticker):
   driver.close()
   return df
 
-def get_provents_by_year_df(tickers):
+def get_by_year_df(tickers):
   df_rows = []
   current_year = date.today().year
 
   for ticker in tickers:
-    df_dividends = get_dividends_df(ticker)
-    df_earnings = df_dividends.groupby([df_dividends.ed.dt.year]).sum('v').reset_index()
-    earnings_avg_3a = df_earnings[df_earnings['ed'].between(current_year-3,current_year-1)]['v'].sum() / 3 # 3 anos
-    earnings_avg_5a = df_earnings[df_earnings['ed'].between(current_year-5,current_year-1)]['v'].sum() / 5 # 5 anos
+    df_provents = get_provents_df(ticker)
+    df_by_year = df_provents.groupby([df_provents.ed.dt.year]).sum('v').reset_index()
+    provents_avg_3y = df_by_year[df_by_year['ed'].between(current_year-3,current_year-1)]['v'].sum() / 3 # 3 anos
+    provents_avg_5y = df_by_year[df_by_year['ed'].between(current_year-5,current_year-1)]['v'].sum() / 5 # 5 anos
 
-    df_rows.append([ticker, earnings_avg_3a, earnings_avg_5a])
+    df_rows.append([ticker, provents_avg_3y, provents_avg_5y])
   
   df = pd.DataFrame(np.array(df_rows), columns=['TICKER','PROVENTOS 3ANOS','PROVENTOS 5ANOS'])
   df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']] = df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']].astype(float)
