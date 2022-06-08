@@ -1,6 +1,6 @@
 import pandas as pd
 
-def get_df(df_stocks):
+def get_rank_df(df_stocks):
   df = df_stocks.copy()
 
   df['EY'] = df[' LPA'] / df['PRECO']

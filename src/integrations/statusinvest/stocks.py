@@ -39,5 +39,5 @@ for column in force_to_float:
   _DF_STOCKS[column] = _DF_STOCKS[column].apply(convert_func)
 _DF_STOCKS[force_to_float] = _DF_STOCKS[force_to_float].astype(float)
 
-def get_stocks_df():
+def get_all_df():
   return _DF_STOCKS

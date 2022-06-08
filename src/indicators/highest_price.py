@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def get_by_dividendyield_df(tickers, df_provents, df_stocks):
+def get_by_dy_df(tickers, df_provents, df_stocks):
   df_rows = []
 
   for ticker in tickers:
