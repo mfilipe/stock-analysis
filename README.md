@@ -1,6 +1,6 @@
 # stock-analysis
 
-Cria um relatório CSV com indicadores para a minha análise fundamentalista das ações. Alguns dos indicadores disponíveis:
+Cria um relatório CSV com indicadores para a minha análise fundamentalista das ações. Alguns dos indicadores presentes:
 
 - Earnings yield
 - Magic Formula
