@@ -1,5 +1,7 @@
 import pandas as pd
 
+pd.set_option('mode.use_inf_as_na', True)
+
 def get_rank_df(df_stocks):
   df = df_stocks.copy()
 
@@ -9,4 +11,5 @@ def get_rank_df(df_stocks):
   df['RANK ROIC'] = df['ROIC'].rank(ascending=False)
   df['MF'] = df[['RANK EY','RANK ROE','RANK ROIC']].sum(axis=1)
 
-  return pd.DataFrame(df, columns=['TICKER','EY','RANK EY','RANK ROE','RANK ROIC','MF'])
+  return pd.DataFrame(df[df['EY'].notnull() & df['ROE'].notnull() & df['ROIC'].notnull()], 
+                      columns=['TICKER','EY','RANK EY','RANK ROE','RANK ROIC','MF'])
