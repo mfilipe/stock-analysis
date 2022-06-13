@@ -15,7 +15,7 @@ def get_provents_df(ticker):
   driver.close()
   return df
 
-def get_by_year_df(tickers):
+def get_average_per_year_df(tickers):
   df_rows = []
   current_year = date.today().year
 

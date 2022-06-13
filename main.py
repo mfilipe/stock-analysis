@@ -14,7 +14,7 @@ import src.indicators.highest_price as highest_price
 import src.output as output
 
 df_stocks = statusinvest_stocks.get_all_df()
-df_provents = statusinvest_provents.get_by_year_df(TICKERS)
+df_provents = statusinvest_provents.get_average_per_year_df(TICKERS)
 df_payouts = statusinvest_payouts.get_by_year_df(TICKERS)
 df_balance_sheet = statusinvest_balance_sheet.get_last_year_balance_df(TICKERS)
 df_magic_formula = magic_formula.get_rank_df(df_stocks)
