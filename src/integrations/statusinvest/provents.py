@@ -2,7 +2,6 @@ from ...base import get_webdriver, By
 import pandas as pd
 import numpy as np
 import json
-from datetime import date
 
 def get_provents_df(ticker):
   driver = get_webdriver()
@@ -17,16 +16,16 @@ def get_provents_df(ticker):
 
 def get_average_per_year_df(tickers):
   df_rows = []
-  current_year = date.today().year
 
   for ticker in tickers:
-    df_provents = get_provents_df(ticker)
-    df_by_year = df_provents.groupby([df_provents.ed.dt.year]).sum('v').reset_index()
-    provents_avg_3y = df_by_year[df_by_year['ed'].between(current_year-3,current_year-1)]['v'].sum() / 3 # 3 anos
-    provents_avg_5y = df_by_year[df_by_year['ed'].between(current_year-5,current_year-1)]['v'].sum() / 5 # 5 anos
+    df_provents = get_provents_df(ticker).sort_values('ed', ascending=True).set_index('ed')
+    provents_1y = df_provents.last('12M')['v'].sum() # 1 ano
+    provents_3y = df_provents.last('36M')['v'].sum() / 3 # 3 anos
+    provents_5y = df_provents.last('60M')['v'].sum() / 5 # 5 anos
 
-    df_rows.append([ticker, provents_avg_3y, provents_avg_5y])
-  
-  df = pd.DataFrame(np.array(df_rows), columns=['TICKER','PROVENTOS 3ANOS','PROVENTOS 5ANOS'])
-  df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']] = df[['PROVENTOS 3ANOS','PROVENTOS 5ANOS']].astype(float)
+    df_rows.append([ticker, provents_1y, provents_3y, provents_5y])
+
+  df = pd.DataFrame(np.array(df_rows), columns=['TICKER','PROVENTOS 1 ANO','PROVENTOS 3 ANOS','PROVENTOS 5 ANOS'])
+  df[['PROVENTOS 1 ANO','PROVENTOS 3 ANOS','PROVENTOS 5 ANOS']] = df[['PROVENTOS 1 ANO','PROVENTOS 3 ANOS',
+                                                                      'PROVENTOS 5 ANOS']].astype(float)
   return df
