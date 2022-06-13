@@ -1,6 +1,6 @@
 # stock-analysis
 
-Cria um relatório CSV com indicadores para a minha análise fundamentalista das ações. Alguns dos indicadores presentes:
+Cria um relatório CSV com indicadores para apoio da minha análise fundamentalista das ações. Alguns dos indicadores presentes:
 
 - Earnings yield
 - Magic Formula
@@ -11,7 +11,7 @@ Somente ações da B3 estão disponíveis. Os dados são da [StatusInvest](https
 ## Requerimentos
 
 - Google Chrome
-- Python 3.9+
+- Python 3.10+
 - `$ pip install -r requirements.txt`
 
 ## Executar
