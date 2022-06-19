@@ -2,8 +2,7 @@ from src.base import logging
 import sys
 
 if not (TICKERS := sys.argv[1:]):
-  logging.error('Informe ao menos um ticker')
-  sys.exit(1)
+  raise ValueError('Informe ao menos um ticker')
 
 import src.integrations.statusinvest.stocks as statusinvest_stocks
 import src.integrations.statusinvest.provents as statusinvest_provents
