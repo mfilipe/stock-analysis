@@ -6,7 +6,7 @@ Cria um relatório CSV com indicadores para apoio da minha análise fundamentali
 - Magic Formula
 - Preço-teto (Método Barsi)
 
-Somente ações da B3 estão disponíveis. Os dados são da [StatusInvest](https://statusinvest.com.br), entretanto a ideia é que seja simples implementar a integração com qualquer outra fonte de dados.
+Somente ações da B3 estão disponíveis. Os dados são da [Investing](https://investing.com/) e [StatusInvest](https://statusinvest.com.br), entretanto a ideia é que seja simples implementar a integração com qualquer outra fonte de dados.
 
 ## Requerimentos
 
