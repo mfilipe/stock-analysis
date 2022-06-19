@@ -20,7 +20,7 @@ df_balance_sheet = statusinvest_balance_sheet.get_last_year_balance_df(TICKERS)
 df_magic_formula = magic_formula.get_rank_df(df_stocks)
 df_highest_price = highest_price.get_df_by_dy(TICKERS, df_dividends)
 
-output.get_formatted_df(df_stocks.join(df_provents.set_index('TICKER'), on='TICKER')
+output.get_formatted_df(df_stocks.join(df_dividends.set_index('TICKER'), on='TICKER')
                                  .join(df_payouts.set_index('TICKER'), on='TICKER')
                                  .join(df_balance_sheet.set_index('TICKER'), on='TICKER')
                                  .join(df_magic_formula.set_index('TICKER'), on='TICKER')
