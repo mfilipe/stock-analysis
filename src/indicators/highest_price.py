@@ -1,16 +1,18 @@
 import pandas as pd
 import numpy as np
 
-def get_by_dy_df(tickers, df_provents, df_stocks):
+def get_df_by_dy(tickers, df_dividends):
   highest_price = lambda provents, dy: provents / (dy / 100)
   
-  df_rows = []
+  records = []
   for ticker in tickers:
-    provents_1y = df_provents[df_provents['TICKER'] == ticker]['PROVENTOS 1 ANO'].iat[0]
-    provents_5y = df_provents[df_provents['TICKER'] == ticker]['PROVENTOS 5 ANOS'].iat[0]
-    
-    df_rows.append([ticker, highest_price(provents_1y, df_stocks[df_stocks['TICKER'] == ticker]['DY'].iat[0]), 
-                    highest_price(provents_5y, 5), highest_price(provents_5y, 10)])
+    df = df_dividends[df_dividends['TICKER'] == ticker]
+    records.append({
+      'TICKER': ticker,
+      'PRECO-TETO DY ATUAL': highest_price(df['PROVENTOS 1 ANO'].iat[0], df['DY 1 ANO'].iat[0]),
+      'PRECO-TETO DY 5 ANOS': highest_price(df['PROVENTOS 5 ANOS'].iat[0], df['DY 5 ANOS'].iat[0]),
+      'PRECO-TETO DY 5%': highest_price(df['PROVENTOS 5 ANOS'].iat[0], 5),
+      'PRECO-TETO DY 10%': highest_price(df['PROVENTOS 5 ANOS'].iat[0], 10)
+    })
   
-  return pd.DataFrame(np.array(df_rows), columns=['TICKER','PRECO-TETO DY ATUAL','PRECO-TETO DY 5%',
-                                                  'PRECO-TETO DY 10%'])
+  return pd.DataFrame(records)
