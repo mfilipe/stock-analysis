@@ -28,10 +28,11 @@ def get_df_all(ticker):
     tds = tr.find_elements(By.TAG_NAME, 'td')
     field_dy = tds[4].text.replace('%', '').replace(',', '')
     field_provents = tds[1].text
+    field_payment = tds[3].text
     records.append({
       'TICKER': ticker,
       'DATA EX': datetime.strptime(tds[0].text, '%b %d, %Y'),
-      'DATA PAGAMENTO': datetime.strptime(tds[3].text, '%b %d, %Y'),
+      'DATA PAGAMENTO': None if field_payment == '--' else datetime.strptime(field_payment, '%b %d, %Y'),
       'PROVENTOS': float(field_provents) if field_provents else None,
       'DY': None if field_dy == '-' else float(field_dy)
     }) 
