@@ -1,10 +1,8 @@
 from src.base import logging
 import sys
 
-if not (TICKERS := sys.argv[1:]):
+if not (TICKERS := list(map(str.upper, sys.argv[1:]))):
   raise ValueError('Informe ao menos um ticker')
-
-TICKERS = list(map(str.upper, TICKERS))
 
 import src.integrations.statusinvest.stocks as statusinvest_stocks
 # import src.integrations.statusinvest.provents as statusinvest_provents
