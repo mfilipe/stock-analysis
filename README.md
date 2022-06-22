@@ -2,9 +2,9 @@
 
 Cria um relatório CSV com indicadores para apoio da minha análise fundamentalista das ações. Alguns dos indicadores presentes:
 
-- Earnings yield
+- Earnings Yield
 - Magic Formula
-- Preço-teto (Método Barsi)
+- Preço Teto
 
 Somente ações da B3 estão disponíveis. Os dados são da [Investing](https://investing.com/) e [StatusInvest](https://statusinvest.com.br), entretanto a ideia é que seja simples implementar a integração com qualquer outra fonte de dados.
 
