@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import jmespath
 
-def get_last_year_balance_df(tickers):
+def get_df_last_year(tickers):
   last_year = date.today().year-1
   records = []
   for ticker in tickers:

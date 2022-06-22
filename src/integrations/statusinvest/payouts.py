@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 
-def get_by_year_df(tickers):
+def get_df_by_year(tickers):
   records = []
   for ticker in tickers:
     data = requests.get(url=f'https://statusinvest.com.br/acao/payoutresult?code={ticker}&type=1').json()['chart']
