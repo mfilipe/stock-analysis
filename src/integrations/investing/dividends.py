@@ -51,8 +51,8 @@ def get_df_average_by_period(tickers):
       'PROVENTOS 3 ANOS': df.last('36M')['PROVENTOS'].sum() / 3,
       'PROVENTOS 5 ANOS': df.last('60M')['PROVENTOS'].sum() / 5,
       'DY 1 ANO': df.last('12M')['DY'].mean(),
-      'DY 3 ANOS': df.last('36M')['DY'].mean(),
-      'DY 5 ANOS': df.last('60M')['DY'].mean()
+      'DY 3 ANOS': df.last('36M').groupby(pd.Grouper(freq='12MS'))['DY'].mean().sum() / 3,
+      'DY 5 ANOS': df.last('60M').groupby(pd.Grouper(freq='12MS'))['DY'].mean().sum() / 5
     } | {
       f'DY {date.year}': dy 
       for date, dy in df.groupby(pd.Grouper(freq='Y'))['DY'].mean().tail(6).iteritems()
