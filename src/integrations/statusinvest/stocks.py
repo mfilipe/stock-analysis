@@ -1,10 +1,12 @@
 from time import sleep
-from ...base import get_webdriver, locale, By
+from ...base import get_webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import tempfile
 import pathlib
 import pandas as pd
+import locale
 
 _DF_STOCKS = pd.DataFrame()
 

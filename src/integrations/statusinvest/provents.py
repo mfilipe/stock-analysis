@@ -1,4 +1,5 @@
-from ...base import get_webdriver, By
+from ...base import get_webdriver
+from selenium.webdriver.common.by import By
 import pandas as pd
 import numpy as np
 import json

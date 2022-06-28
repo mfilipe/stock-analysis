@@ -1,4 +1,5 @@
-from ...base import get_webdriver, By
+from ...base import get_webdriver
+from selenium.webdriver.common.by import By
 import src.integrations.investing.stocks as investing_stocks
 import pandas as pd
 from datetime import datetime
