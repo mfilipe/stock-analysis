@@ -1,4 +1,3 @@
-from src.base import logging
 import sys
 
 if not (TICKERS := list(map(str.upper, sys.argv[1:]))):
