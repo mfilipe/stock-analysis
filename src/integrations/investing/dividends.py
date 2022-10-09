@@ -4,13 +4,18 @@ import src.integrations.investing.stocks as investing_stocks
 import pandas as pd
 from datetime import datetime
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 def get_df_all(ticker):
   df_stocks = investing_stocks.get_all()
 
   tag = df_stocks[(df_stocks['country'] == 'brazil') & (df_stocks['symbol'].str.upper() == ticker)]['tag'].iat[0]
   driver = get_webdriver()
-  driver.get(f'https://www.investing.com/equities/{tag}-dividends')
+  driver.set_page_load_timeout(5)
+  try:
+    driver.get(f'https://www.investing.com/equities/{tag}-dividends')
+  except TimeoutException:
+    driver.execute_script("window.stop();")
   
   table = driver.find_element(By.XPATH, "//*[@tablesorter_dividends]")
   
