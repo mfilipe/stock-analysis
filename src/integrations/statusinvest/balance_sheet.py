@@ -1,15 +1,14 @@
 from datetime import date
 import pandas as pd
-import requests
+from ...base import make_request
 import jmespath
 
 def get_df_last_year(tickers):
   last_year = date.today().year-1
   records = []
   for ticker in tickers:
-    data = requests.get(
-      url=f'https://statusinvest.com.br/acao/getativos?code={ticker}&type=0&futureData=false&range.min={last_year}&range.max={last_year}'
-    ).json()
+    data = make_request(f'https://statusinvest.com.br/acao/getativos?code={ticker}&type=0&futureData=false&' +
+                        f'range.min={last_year}&range.max={last_year}').json()
     balance_values = {x[0]: x[1] for x in jmespath.search('data.grid[*].gridLineModel.[key, values[0]]', data)}
     passive = balance_values['PassivoCiruclante'] + balance_values['PassivoNaoCiruclante']
     records.append({
