@@ -19,7 +19,7 @@ def get_webdriver(prefs={}):
 
   return webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
 
-UA = UserAgent(use_external_data=True)
+UA = UserAgent()
 
 def make_request(url):
   return requests.get(url, headers={'User-Agent': UA.chrome})
