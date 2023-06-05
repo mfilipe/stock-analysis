@@ -25,7 +25,7 @@ def get_df_all(ticker):
   while True:
     last_timestamp = get_last_timestamp()
     driver.execute_script(f'showMoreDividendsHistory("{pair_id}", "");')
-    WebDriverWait(driver, 5).until(lambda driver: driver.execute_script("return jQuery.active == 0"))
+    WebDriverWait(driver, 10).until(lambda driver: driver.execute_script("return jQuery.active == 0"))
     if last_timestamp == get_last_timestamp():
       break
 
