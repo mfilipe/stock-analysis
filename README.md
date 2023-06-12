@@ -11,7 +11,7 @@ Somente ações da B3 estão disponíveis. Os dados são da [Investing](https://
 ## Requerimentos
 
 - Google Chrome
-- Python 3.10+
+- Python 3.10+ (recomendo [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
 - `$ pip install -r requirements.txt`
 
 ## Executar
