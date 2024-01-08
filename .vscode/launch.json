@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: main.py",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": ["VIVT3", 
+                     "PSSA3", "ITSA4", "BPAC11",
+                     "VALE3", 
+                     "UNIP6", 
+                     "CPFE3", "EGIE3", "TAEE11",
+                     "KLBN11", "CSAN3", "SLCE3", "KEPL3"],
+            "justMyCode": false
+        }
+    ]
+}
