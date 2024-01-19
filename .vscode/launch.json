@@ -11,11 +11,10 @@
             "program": "main.py",
             "console": "integratedTerminal",
             "args": ["VIVT3", 
-                     "PSSA3", "ITSA4", "BPAC11",
-                     "VALE3", 
-                     "UNIP6", 
-                     "CPFE3", "EGIE3", "TAEE11",
-                     "KLBN11", "CSAN3", "SLCE3", "KEPL3"],
+                     "PSSA3", "ITSA3",
+                     "UNIP3",
+                     "CPFE3", "EGIE3", "TRPL3", "TAEE3",
+                     "KLBN3", "CSAN3", "SLCE3"],
             "justMyCode": false
         }
     ]
