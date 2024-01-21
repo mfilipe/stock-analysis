@@ -10,11 +10,12 @@
             "request": "launch",
             "program": "main.py",
             "console": "integratedTerminal",
-            "args": ["VIVT3", 
-                     "PSSA3", "ITSA3",
+            "args": ["VIVT3",
+                     "PSSA3",
+                     "ITSA4",
                      "UNIP3",
-                     "CPFE3", "EGIE3", "TRPL3", "TAEE3",
-                     "KLBN3", "CSAN3", "SLCE3"],
+                     "CPFE3", "EGIE3", "TRPL3", "TAEE11",
+                     "KLBN11", "SLCE3"],
             "justMyCode": false
         }
     ]
