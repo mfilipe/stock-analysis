@@ -1,6 +1,4 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from fake_useragent import UserAgent
 import logging
 import sys
@@ -14,10 +12,9 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO,
 
 def get_webdriver(prefs={}):
   options = webdriver.ChromeOptions()
-  # options.add_argument("--headless")
   options.add_experimental_option('prefs', prefs)
 
-  return webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
+  return webdriver.Chrome(options=options)
 
 UA = UserAgent()
 
