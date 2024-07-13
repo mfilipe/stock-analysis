@@ -24,6 +24,7 @@ with tempfile.TemporaryDirectory() as tmpdir:
   #   EC.element_to_be_clickable((By.XPATH, '//*[@id="main-2"]/div[3]/div/div/div/button[2]'))
   # ).click()
   sleep(2)
+  driver.find_element(By.XPATH, '//*[@id="footer-fixed"]/a').click() # Google Ads
   driver.find_element(By.XPATH, '//*[@id="main-2"]/div[3]/div/div/div/button[2]').click()
   # download
   driver.execute_script("arguments[0].click();", WebDriverWait(driver, timeout=5).until(
