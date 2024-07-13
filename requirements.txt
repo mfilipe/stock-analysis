@@ -2,5 +2,6 @@ investpy==1.0.8
 jmespath==1.0.0
 pandas==1.4.2
 selenium==4.22.0
+undetected-chromedriver==3.5.5
 requests==2.27.1
 fake-useragent==1.1.1

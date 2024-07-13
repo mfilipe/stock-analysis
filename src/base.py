@@ -1,4 +1,4 @@
-from selenium import webdriver
+import undetected_chromedriver as uc
 from fake_useragent import UserAgent
 import logging
 import sys
@@ -11,11 +11,11 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO,
                     format='[%(asctime)s] [%(module)s] %(levelname)s: %(message)s')
 
 def get_webdriver(download_dir=None):
-  options = webdriver.ChromeOptions()
+  options = uc.ChromeOptions()
   if download_dir:
     options.add_experimental_option('prefs', {'download.default_directory': download_dir})
 
-  return webdriver.Chrome(options=options)
+  return uc.Chrome(options=options)
 
 UA = UserAgent()
 
