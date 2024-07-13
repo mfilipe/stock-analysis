@@ -12,7 +12,7 @@ _DF_STOCKS = pd.DataFrame()
 
 # dataframe de ações
 with tempfile.TemporaryDirectory() as tmpdir:
-  driver = get_webdriver(prefs={'download.default_directory': tmpdir})
+  driver = get_webdriver(download_dir=tmpdir)
   driver.get('https://statusinvest.com.br/acoes/busca-avancada')
 
   # popup

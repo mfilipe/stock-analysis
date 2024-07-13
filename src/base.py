@@ -10,9 +10,10 @@ locale.setlocale(locale.LC_NUMERIC, '')
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, 
                     format='[%(asctime)s] [%(module)s] %(levelname)s: %(message)s')
 
-def get_webdriver(prefs={}):
+def get_webdriver(download_dir=None):
   options = webdriver.ChromeOptions()
-  options.add_experimental_option('prefs', prefs)
+  if download_dir:
+    options.add_experimental_option('prefs', {'download.default_directory': download_dir})
 
   return webdriver.Chrome(options=options)
 
