@@ -8,7 +8,8 @@ def get_formatted_df(df_full):
                                'ROE','ROIC',' LPA','EY','RANK EY','RANK ROE','RANK ROIC','MF',
                                'CAGR RECEITAS 5 ANOS','CAGR LUCROS 5 ANOS',
                                'PROVENTOS 1 ANO','PROVENTOS 5 ANOS','DY 1 ANO','DY 5 ANOS',
-                               'PRECO-TETO DY ATUAL','PRECO-TETO DY 5 ANOS','PRECO-TETO DY 5%','PRECO-TETO DY 10%'] +
+                               'PRECO-TETO DY ATUAL','DY-ON-COST ATUAL','PRECO-TETO DY 5 ANOS','DY-ON-COST 5 ANOS',
+                               'PRECO-TETO DY 5%','PRECO-TETO DY 10%'] +
                               [f'PAYOUT {year}' for year in range(current_year, current_year-6, -1)] +
                               [f'DY {year}' for year in range(current_year, current_year-6, -1)] +
                               ['ATIVO','PASSIVO','PATRIMONIO LÍQUIDO']).set_index('TICKER') \
