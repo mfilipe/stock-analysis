@@ -15,18 +15,7 @@ with tempfile.TemporaryDirectory() as tmpdir:
   driver = get_webdriver(download_dir=tmpdir)
   driver.get('https://statusinvest.com.br/acoes/busca-avancada')
 
-  # popup
-  # WebDriverWait(driver, timeout=30).until(
-  #   EC.element_to_be_clickable((By.XPATH, '/html/body/div[12]/div/div/div[1]/button'))
-  # ).click()
-  # buscar 
-  # WebDriverWait(driver, timeout=30).until(
-  #   EC.element_to_be_clickable((By.XPATH, '//*[@id="main-2"]/div[3]/div/div/div/button[2]'))
-  # ).click()
-  sleep(2)
-  driver.find_element(By.XPATH, '//*[@id="footer-fixed"]/a').click() # Google Ads
   driver.find_element(By.XPATH, '//*[@id="main-2"]/div[3]/div/div/div/button[2]').click()
-  # download
   driver.execute_script("arguments[0].click();", WebDriverWait(driver, timeout=5).until(
     EC.element_to_be_clickable((By.XPATH, '//*[@id="main-2"]/div[4]/div/div[1]/div[2]/a'))
   ))
