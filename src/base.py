@@ -12,6 +12,7 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO,
 
 def get_webdriver(download_dir=None):
   options = uc.ChromeOptions()
+  options.page_load_strategy = 'eager'
   if download_dir:
     options.add_experimental_option('prefs', {'download.default_directory': download_dir})
 
