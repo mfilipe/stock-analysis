@@ -5,6 +5,7 @@ Cria um relatório CSV com indicadores para apoio da minha análise fundamentali
 - Earnings Yield
 - Magic Formula
 - Preço Teto
+- Dividend on Cost
 
 Somente ações da B3 estão disponíveis. Os dados são da [Investing](https://investing.com/) e [StatusInvest](https://statusinvest.com.br), entretanto a ideia é que seja simples implementar a integração com qualquer outra fonte de dados.
 
